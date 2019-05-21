@@ -10,11 +10,33 @@ using System.Windows.Forms;
 
 namespace TeaBagMaker
 {
-    public partial class Form1 : Form
+    public partial class Form : System.Windows.Forms.Form
     {
-        public Form1()
+        string[] list = new string[]{ "홍차", "녹차", "루이보스차", "국화차" };
+        string[] tlist = new string[] { "2","3","5","2" };
+        string restr = "";
+
+        public Form()
         {
             InitializeComponent();
+        }
+
+        private void Label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form_Load(object sender, EventArgs e)
+        {
+           for(int i=0; i<list.Length; i++)
+            {
+                this.combobox.Items.Add(list[i]);
+            }
+            this.combobox.SelectedItem = 0;
+            this.restr = this.timelb.Text;
+
+            this.combobox.Text = "" + this.combobox.Items[0];
+            this.timelb.Text = "" + restr + " " + tlist[0]+"분";
         }
     }
 }
