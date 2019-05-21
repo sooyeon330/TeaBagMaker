@@ -14,6 +14,8 @@ namespace TeaBagMaker
     {
         string[] list = new string[]{ "홍차", "녹차", "루이보스차", "국화차" };
         string[] tlist = new string[] { "2","3","5","2" };
+        int[] time = { 2 * 60, 3 * 60, 5 * 60, 2 * 60 };
+        int countTime = 0;
         string restr = "";
 
         public Form()
@@ -37,6 +39,21 @@ namespace TeaBagMaker
 
             this.combobox.Text = "" + this.combobox.Items[0];
             this.timelb.Text = "" + restr + " " + tlist[0]+"분";
+        }
+
+        private void Btn_go_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Combobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.timelb.Text = restr + tlist[this.combobox.SelectedIndex]+"분";
         }
     }
 }

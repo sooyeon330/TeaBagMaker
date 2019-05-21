@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.combobox = new System.Windows.Forms.ComboBox();
             this.timelb = new System.Windows.Forms.Label();
             this.btn_go = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.Timer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // combobox
@@ -42,6 +44,7 @@
             this.combobox.Name = "combobox";
             this.combobox.Size = new System.Drawing.Size(351, 21);
             this.combobox.TabIndex = 0;
+            this.combobox.SelectedIndexChanged += new System.EventHandler(this.Combobox_SelectedIndexChanged);
             // 
             // timelb
             // 
@@ -62,6 +65,7 @@
             this.btn_go.TabIndex = 2;
             this.btn_go.Text = "담그기";
             this.btn_go.UseVisualStyleBackColor = false;
+            this.btn_go.Click += new System.EventHandler(this.Btn_go_Click);
             // 
             // label2
             // 
@@ -72,6 +76,10 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "2019 05 21 - 3616 채수연";
             this.label2.Click += new System.EventHandler(this.Label2_Click);
+            // 
+            // Timer
+            // 
+            this.Timer.Tick += new System.EventHandler(this.Timer_Tick);
             // 
             // Form
             // 
@@ -96,6 +104,7 @@
         private System.Windows.Forms.Label timelb;
         private System.Windows.Forms.Button btn_go;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer Timer;
     }
 }
 
