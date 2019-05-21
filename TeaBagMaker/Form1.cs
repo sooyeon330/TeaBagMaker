@@ -14,7 +14,7 @@ namespace TeaBagMaker
     {
         string[] list = new string[]{ "홍차", "녹차", "루이보스차", "국화차" };
         string[] tlist = new string[] { "2","3","5","2" };
-        int[] time = { 2 * 60, 3 * 60, 5 * 60, 2 * 60 };
+        int[] time = { 2*60, 3 * 60, 5 * 60, 2 * 60 };
         int countTime = 0;
         string restr = "";
 
@@ -43,12 +43,24 @@ namespace TeaBagMaker
 
         private void Btn_go_Click(object sender, EventArgs e)
         {
-           
+            this.countTime = time[this.combobox.SelectedIndex];
+            this.Timer.Enabled = true;
         }
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-
+            if(countTime < 1)
+            {
+                this.Timer.Enabled = false;
+                MessageBox.Show("티백을 건지세요!", "알림",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                countTime--;
+                this.timelb.Text = restr + Convert.ToString(countTime / 60) + "분"
+                    + Convert.ToString(countTime % 60) + "초";
+            }
         }
 
         private void Combobox_SelectedIndexChanged(object sender, EventArgs e)
